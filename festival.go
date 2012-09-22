@@ -1,3 +1,5 @@
+// package festival provides a Go interface to festival's text-to-speech
+// functionality.
 package festival
 
 import (
@@ -14,6 +16,8 @@ func setupCmd() (festival *exec.Cmd, err error) {
 	return
 }
 
+// Speak passes the text to festival, speaking it. It will block until
+// the command finishes and the text is done being spoken.
 func Speak(text string) (err error) {
 	var festival *exec.Cmd
 	if festival, err = setupCmd(); err != nil {
